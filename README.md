@@ -1,6 +1,4 @@
-# InterDiff: Generating 3D Human-Object Interactions with Physics-Informed Diffusion
-
-<img src="demo/teaser.png" width="100%"/>
+# InterDiff: Generating 3D Human-Object Interactions with Physics-Informed Diffusion <img src="demo/teaser.png" width="100%"/>
 
 ## Introduction
 
