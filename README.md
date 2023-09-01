@@ -1,5 +1,7 @@
 # [ICCV 2023] InterDiff: Generating 3D Human-Object Interactions with Physics-Informed Diffusion
 
+<img src="demo/teaser.png" width="100%"/>
+
 ## Introduction
 
 This is the official implementation of "[InterDiff: Generating 3D Human-Object Interactions with Physics-Informed Diffusion](https://sirui-xu.github.io/InterDiff/)." 
