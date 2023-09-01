@@ -3,7 +3,7 @@
 <strong>InterDiff: Generating 3D Human-Object Interactions with Physics-Informed Diffusion</strong></h1>
   <p align="center">
     <a href='https://sirui-xu.github.io/' target='_blank'>Sirui Xu</a>&emsp;
-    <a href='' target='_blank'>Zhengyuan Li</a>&emsp;
+    <a href='https://github.com/lzhyu' target='_blank'>Zhengyuan Li</a>&emsp;
     <a href='https://yxw.web.illinois.edu/' target='_blank'>Yu-Xiong Wang*</a>&emsp;
     <a href='https://cs.illinois.edu/about/people/faculty/lgui' target='_blank'>Liang-Yan Gui*</a>&emsp;
     <br>
@@ -37,6 +37,11 @@ This paper addresses a novel task of anticipating 3D human-object interactions (
 ## 🔥 News
 - [2023-09-01] Our paper is available on the [Arxiv](https://arxiv.org/pdf/2308.16905) &#x1F389;
 
+## 📝 TODO List
+- [ ] Release more demos.
+- [ ] Release training and evaluation code.
+- [ ] Release code for visualization.
+
 ## 🔍 Overview
 
 ### 💡 Key Insight
@@ -52,11 +57,6 @@ We present ground truth HOI sequences (<b>left</b>), object motions (<b>middle</
   <img src="demo/results.png" align="center" width="100%">
 </p>
 
-
-## 📝 TODO List
-- [ ] Release more demos.
-- [ ] Release training and evaluation code.
-- [ ] Release code for visualization.
 
 ## 🔗 Citation
 
@@ -77,4 +77,4 @@ If you find our work helpful, please cite:
 - [BEHAVE](https://virtualhumans.mpi-inf.mpg.de/behave/): We use the BEHAVE dataset for the mesh-based interaction.
 - [HO-GCN](https://hiwilliamwwl.github.io/Learn-to-Predict-How-Humans-Manipulate-Large-Sized-Objects-From-Interactive-Motions-objects/): We use the presented dataset for the skeleton-based interaction.
 - [TEMOS](https://github.com/Mathux/TEMOS): We adopt the rendering code for HOI visualization.
-- [MDM](https://guytevet.github.io/mdm-page/): We use the MDM as the main framework.
+- [MDM](https://guytevet.github.io/mdm-page/): We use the MDM as the main architecture.
