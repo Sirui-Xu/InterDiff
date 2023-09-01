@@ -15,13 +15,13 @@
 
 <p align="center">
   <a href="http://arxiv.org/abs/2308.16905" target='_blank'>
-    <img src="https://img.shields.io/badge/arXiv-2308.16905-blue?">
+    <img src="https://img.shields.io/badge/arXiv-2308.16905-green?">
   </a> 
   <a href="https://arxiv.org/pdf/2308.16905.pdf" target='_blank'>
-    <img src="https://img.shields.io/badge/Paper-📖-blue?">
+    <img src="https://img.shields.io/badge/Paper-📖-yellow?">
   </a> 
   <a href="https://sirui-xu.github.io/InterDiff/" target='_blank'>
-    <img src="https://img.shields.io/badge/Project-&#x1F680-blue">
+    <img src="https://img.shields.io/badge/Project-&#x1F680-red">
   </a>
   <a href="" target='_blank'>
     <img src="https://visitor-badge.laobi.icu/badge?page_id=Sirui-Xu.InterDiff&left_color=gray&right_color=blue">
@@ -43,7 +43,7 @@ This paper addresses a novel task of anticipating 3D human-object interactions (
 <p align="center">
   <img src="demo/insight.png" align="center" width="60%">
 </p>
-We present ground truth HOI sequences (<b>left</b>), object motions (<b>middle</b>), and objects relative to the contacts after coordinate transformations (<b>right</b>). Our key insight is to inject coordinate transformations into a diffusion model, as the relative motion shows simpler patterns that are easier to predict, \eg, rotating around a fixed axis (<b>top</b>) or being almost stationary (<b>bottom</b>).
+We present ground truth HOI sequences (<b>left</b>), object motions (<b>middle</b>), and objects relative to the contacts after coordinate transformations (<b>right</b>). Our key insight is to inject coordinate transformations into a diffusion model, as the relative motion shows simpler patterns that are easier to predict, e.g., rotating around a fixed axis (<b>top</b>) or being almost stationary (<b>bottom</b>).
 
 ### 🧪 Experimental Results
 
