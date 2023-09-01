@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is the official implementation of "[InterDiff: Generating 3D Human-Object Interactions with Physics-Informed Diffusion](https://arxiv.org/abs/2308.16905)." 
+This is the official implementation of "[InterDiff: Generating 3D Human-Object Interactions with Physics-Informed Diffusion](https://sirui-xu.github.io/InterDiff/)." 
 
 ## What's New
 * The paper is posted on the [Arxiv](https://arxiv.org/pdf/2308.16905).
