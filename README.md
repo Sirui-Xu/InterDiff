@@ -35,7 +35,7 @@
 This paper addresses a novel task of anticipating 3D human-object interactions (HOIs). Most existing research on HOI synthesis lacks comprehensive whole-body interactions with dynamic objects, e.g., often limited to manipulating small or static objects. Our task is significantly more challenging, as it requires <b>modeling dynamic objects with various shapes</b>, <b>capturing whole-body motion</b>, and <b>ensuring physically valid interactions</b>. To this end, we propose InterDiff, a framework comprising two key steps: (i) interaction diffusion, where we leverage a diffusion model to encode the distribution of future human-object interactions; (ii) interaction correction, where we introduce a physics-informed predictor to correct denoised HOIs in a diffusion step. Our key insight is to <b>inject prior knowledge</b> that the <b>interactions under reference with respect to contact points</b> follow a simple pattern and are easily predictable. Experiments on multiple human-object interaction datasets demonstrate the effectiveness of our method for this task, capable of producing realistic, vivid, and remarkably long-term 3D HOI predictions.
 
 ## 🔥 News
-- [2023-09-01] Our paper is available on the [Arxiv](https://arxiv.org/pdf/2308.16905) &#x1F389;
+- [2023-09-01] Our paper is available on the [Arxiv](https://arxiv.org/pdf/2308.16905) &#x1F389; Code/Models are coming soon. Please stay tuned! ☕️
 
 ## 📝 TODO List
 - [ ] Release more demos.
@@ -75,9 +75,10 @@ If you find our work helpful, please cite:
 
 ## 👏 Acknowledgements
 - [BEHAVE](https://virtualhumans.mpi-inf.mpg.de/behave/): We use the BEHAVE dataset for the mesh-based interaction.
-- [HO-GCN](https://hiwilliamwwl.github.io/Learn-to-Predict-How-Humans-Manipulate-Large-Sized-Objects-From-Interactive-Motions-objects/): We use the presented dataset for the skeleton-based interaction.
+- [HO-GCN](https://hiwilliamwwl.github.io/Learn-to-Predict-How-Humans-Manipulate-Large-Sized-Objects-From-Interactive-Motions-objects/): We use its presented dataset for the skeleton-based interaction.
 - [TEMOS](https://github.com/Mathux/TEMOS): We adopt the rendering code for HOI visualization.
-- [MDM](https://guytevet.github.io/mdm-page/): We use the MDM as the main architecture.
+- [MDM](https://guytevet.github.io/mdm-page/): We use the MDM in our work.
+- [STARS](https://github.com/Sirui-Xu/STARS): We use the STARS in our work.
 
 ## 📚 License
 This code is distributed under an [MIT LICENSE](LICENSE).
