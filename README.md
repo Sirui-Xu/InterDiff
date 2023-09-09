@@ -85,7 +85,7 @@ This code is distributed under an [MIT LICENSE](LICENSE).
 
 Note that our code depends on other libraries, including SMPL, SMPL-X, PyTorch3D, Hugging Face, Hydra, and uses datasets which each have their own respective licenses that must also be followed.
 
-## Star History
+## 🌟 Star History
 
 <p align="center">
     <a href="https://star-history.com/#Sirui-Xu/InterDiff&Date" target="_blank">
