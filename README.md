@@ -16,17 +16,23 @@
 </p>
 <p align="center">
   <a href='https://arxiv.org/abs/2308.16905'>
-    <img src='https://img.shields.io/badge/Arxiv-2308.16905-red?style=flat&logo=arXiv&logoColor=red' alt='Paper PDF'>
+    <img src='https://img.shields.io/badge/Arxiv-2308.16905-A42C25?style=flat&logo=arXiv&logoColor=A42C25'>
   </a>
   <a href='https://arxiv.org/abs/2308.16905.pdf'>
-    <img src='https://img.shields.io/badge/Paper-PDF-yellow?style=flat&logo=arXiv&logoColor=yellow' alt='Paper PDF'>
+    <img src='https://img.shields.io/badge/Paper-PDF-yellow?style=flat&logo=arXiv&logoColor=yellow'>
   </a>
-  <a href='https://sirui-xu.github.io/InterDiff/' style='padding-left: 0.5rem;'>
-  <img src='https://img.shields.io/badge/Project-Page-blue?style=flat&logo=Google%20chrome&logoColor=blue' alt='Project Page'></a>
-  <a href='https://github.com/Sirui-Xu/InterDiff' style='padding-left: 0.5rem;'>
-    <img src='https://img.shields.io/badge/GitHub-Code-black?style=flat&logo=github&logoColor=white' alt='Github Code'></a>
+  <a href='https://sirui-xu.github.io/InterDiff/'>
+  <img src='https://img.shields.io/badge/Project-Page-green?style=flat&logo=Google%20chrome&logoColor=green'></a>
+  <a href='https://youtu.be/Ako1n9HEGBo'>
+  <img src='https://img.shields.io/badge/YouTube-Video-EA3323?style=flat&logo=youtube&logoColor=EA3323'></a>
+  <a href='https://www.bilibili.com/video/BV1Xh4y187ZH/'>
+    <img src='https://img.shields.io/badge/Bilibili-Video-4EABE6?style=flat&logo=Bilibili&logoColor=4EABE6'></a>
+  <a href='https://zhuanlan.zhihu.com/p/657497860'>
+    <img src='https://img.shields.io/badge/Zhihu-Doc-2F6BE0?style=flat&logo=Zhihu&logoColor=2F6BE0'></a> 
+  <a href='https://github.com/Sirui-Xu/InterDiff'>
+    <img src='https://img.shields.io/badge/GitHub-Code-black?style=flat&logo=github&logoColor=white'></a>
   <a href="" target='_blank'>
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=Sirui-Xu.InterDiff&left_color=gray&right_color=blue">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=Sirui-Xu.InterDiff&left_color=gray&right_color=orange">
   </a>
 </p>
 
@@ -54,9 +60,10 @@ This paper addresses a novel task of anticipating 3D human-object interactions (
 
 ### 💡 Key Insight
 <p align="center">
-  <img src="assets/insight.png" align="center" width="60%">
+  <img src="assets/5.gif" width="50%"/><img src="assets/24.gif" width="50%"/>
+  <img src="assets/50.gif" width="50%"/><img src="assets/38.gif" width="50%"/>
 </p>
-We present ground truth HOI sequences (<b>left</b>), object motions (<b>middle</b>), and objects relative to the contacts after coordinate transformations (<b>right</b>). Our key insight is to inject coordinate transformations into a diffusion model, as the relative motion shows simpler patterns that are easier to predict, e.g., rotating around a fixed axis (<b>top</b>) or being almost stationary (<b>bottom</b>).
+We present HOI sequences (<b>left</b>), object motions (<b>middle</b>), and objects relative to the contacts after coordinate transformations (<b>right</b>). Our key insight is to inject coordinate transformations into a diffusion model, as the relative motion shows simpler patterns that are easier to predict, e.g., being almost stationary (<b>top</b>), or rotating around a fixed axis (<b>bottom</b>).
 <!-- 
 ### 🧪 Experimental Results
 
