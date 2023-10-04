@@ -52,7 +52,8 @@ This paper addresses a novel task of anticipating 3D human-object interactions (
 - [2023-09-01] Our paper is available on the [Arxiv](https://arxiv.org/pdf/2308.16905) &#x1F389; Code/Models are coming soon. Please stay tuned! ☕️
 
 ## 📝 TODO List
-- [ ] Release more demos.
+- [✔️] Release more demos.
+- [ ] Data preparation.
 - [ ] Release training and evaluation code.
 - [ ] Release code for visualization.
 

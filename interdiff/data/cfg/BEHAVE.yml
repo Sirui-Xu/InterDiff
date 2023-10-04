@@ -1,0 +1,5 @@
+# SMPL
+MOTION_PATH: ./data/behave/sequences # path where motion sequences (30fps) are stored
+OBJECT_TEMPLATE: ./data/behave/objects # path where object templates are stored
+SPLIT_PATH: ./data/behave/split.json # path where processed BEHAVE is stored for training BEHAVE network
+MODEL_PATH: # path where smplh models are stored

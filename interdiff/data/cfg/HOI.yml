@@ -1,0 +1,2 @@
+# Skeleton
+MOTION_PATH: ./data/HOI/human_object_kpts_motion_only # path where motion sequences (30fps) are stored
