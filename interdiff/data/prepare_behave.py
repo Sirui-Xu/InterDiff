@@ -127,7 +127,7 @@ if __name__ == '__main__':
     # parser.add_argument('-s', '--seq_folder')
     parser.add_argument('-fs', '--start', type=int, default=0, help='index of the start frame')
     parser.add_argument('-fe', '--end', type=int, default=None)
-    parser.add_argument('-n', '--num_samples', type=int, default=2048)
+    parser.add_argument('-n', '--num_samples', type=int, default=1000)
     parser.add_argument('-redo', default=True, action='store_false')
 
     args = parser.parse_args()
