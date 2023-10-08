@@ -37,7 +37,7 @@ Please follow the steps below:
 For further information about the BEHAVE dataset and for download links, please click [here](https://virtualhumans.mpi-inf.mpg.de/behave/) 
 
 > [!IMPORTANT]
-> Users may have different point cloud samples, which may affect our trained model. We are evaluating this and may release the our model weights and point cloud sample data later.
+> Users may have different sampled point clouds when generating contact labels, which may affect the trained model. We are evaluating this and may release the our model weights and point cloud sample data later.
 
 </details>
 
