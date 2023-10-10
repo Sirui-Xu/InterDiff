@@ -166,8 +166,8 @@ def get_datasets(align_data=False,discard_discrep=False):
     # step 2:data split
     # we reserved all 471 samples of Chairs 3 and 4 (see Fig. 2) to form a unseen instance test set
     # return: 'train', 'valid', 'test_seen', 'test_unseen'
-    ds_save_dir = "./HOI/ds_seen.pkl"
-    ds_unseen_save_dir =  "./HOI/ds_test_unseen.pkl"
+    ds_save_dir = MOTION_PATH + "/ds_seen.pkl"
+    ds_unseen_save_dir = MOTION_PATH + "/ds_test_unseen.pkl"
     if os.path.exists(ds_save_dir):
         print('loading from file')
         with open(ds_save_dir,'rb') as f:
