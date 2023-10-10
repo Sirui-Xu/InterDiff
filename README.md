@@ -45,11 +45,11 @@ This paper addresses a novel task of anticipating 3D human-object interactions (
 
 ## 📖 Implementation
 To create the environment, follow the instructions:
-'''
+```
 conda create -n interdiff python=3.7
 conda activate interdiff
 pip install -r requirements.txt
-'''
+```
 For more information about the implementation, see [interdiff/README.md](interdiff/README.md).
 
 ## 📹 Demo
