@@ -72,7 +72,7 @@ class ObjProjector(nn.Module):
         obj_trans = torch.cat([frame['objfit_params']['trans'].unsqueeze(0) for frame in data['frames']], dim=0).float() # TxBx3
         human_verts = torch.cat([frame['markers'].unsqueeze(0) for frame in data['frames']], dim=0).float() # TxBxPx4
         contact = human_verts[self.args.past_len:, :, :, 6].sum(dim=0) # B P
-        final_results, obj_gt = self.sample(obj_angles, obj_trans, human_verts, contact, initialize)
+        final_results = self.sample(obj_angles, obj_trans, human_verts, contact, initialize)
         obj_gt = torch.cat([obj_angles, obj_trans], dim=2)
         return final_results, obj_gt
 
