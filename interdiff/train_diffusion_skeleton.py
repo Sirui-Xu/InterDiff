@@ -10,7 +10,7 @@ from pytorch_lightning import loggers as pl_loggers
 from pathlib import Path
 from datetime import datetime
 from argparse import ArgumentParser, Namespace
-from model.model_skeleton import create_model_and_diffusion
+from model.diffusion_skeleton import create_model_and_diffusion
 import functools
 from diffusion.resample import LossAwareSampler
 from diffusion.resample import create_named_schedule_sampler
@@ -37,10 +37,10 @@ class LitInteraction(pl.LightningModule):
 
     def on_train_start(self) -> None:
         #     backup trainer and model
-        shutil.copy('./train_diffusion_skeleton.py', str(save_dir / 'train_diffusion.py'))
-        shutil.copy('./model/model_skeleton.py', str(save_dir / 'model.py'))
-        shutil.copy('./data/dataset_skeleton.py', str(save_dir / 'dataset.py'))
-        shutil.copy('./diffusion/gaussian_diffusion.py', str(save_dir / 'diffusion.py'))
+        shutil.copy('./train_diffusion_skeleton.py', str(save_dir / 'train_diffusion_skeleton.py'))
+        shutil.copy('./model/diffusion_skeleton.py', str(save_dir / 'diffusion_skeleton.py'))
+        shutil.copy('./data/dataset_skeleton.py', str(save_dir / 'dataset_skeleton.py'))
+        shutil.copy('./diffusion/gaussian_diffusion.py', str(save_dir / 'gaussian_diffusion.py'))
         return
 
     def l2(self, a, b):

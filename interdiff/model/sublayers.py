@@ -373,3 +373,144 @@ class TransformerDecoderLayerQaN(nn.Module):
     def _ff_block(self, x: Tensor) -> Tensor:
         x = self.linear2(self.dropout(self.activation(self.linear1(x))))
         return self.dropout3(x)
+    
+
+class ConvTemporalGraphical(nn.Module):
+    #Source : https://github.com/yysijie/st-gcn/blob/master/net/st_gcn.py
+    r"""The basic module for applying a graph convolution.
+    Args:
+        in_channels (int): Number of channels in the input sequence data
+        out_channels (int): Number of channels produced by the convolution
+        kernel_size (int): Size of the graph convolving kernel
+        t_kernel_size (int): Size of the temporal convolving kernel
+        t_stride (int, optional): Stride of the temporal convolution. Default: 1
+        t_padding (int, optional): Temporal zero-padding added to both sides of
+            the input. Default: 0
+        t_dilation (int, optional): Spacing between temporal kernel elements.
+            Default: 1
+        bias (bool, optional): If ``True``, adds a learnable bias to the output.
+            Default: ``True``
+    Shape:
+        - Input: Input graph sequence in :math:`(N, in_channels, T_{in}, V)` format
+        - Output: Outpu graph sequence in :math:`(N, out_channels, T_{out}, V)` format
+        where
+            :math:`N` is a batch size,
+            :math:`K` is the spatial kernel size, as :math:`K == kernel_size[1]`,
+            :math:`T_{in}/T_{out}` is a length of input/output sequence,
+            :math:`V` is the number of graph nodes. 
+    """
+    def __init__(self,
+                 time_dim,
+                 joints_dim
+    ):
+        super(ConvTemporalGraphical,self).__init__()
+
+        self.T=nn.Parameter(torch.FloatTensor(time_dim, time_dim)) 
+        stdv = 1. / math.sqrt(self.T.size(1))
+        self.T.data.uniform_(-stdv,stdv)
+
+        self.joints_dim = joints_dim
+        self.time_dim = time_dim
+
+    def forward(self, x):
+        T = self.T.unsqueeze(0).expand([self.joints_dim, self.time_dim, self.time_dim])
+        x = torch.einsum('nctv,vtq->ncqv', (x, T))
+        # x = torch.einsum('nctv,vtq->ncqv', (x, self.T))
+        return x.contiguous() 
+
+class ConvSpatialGraphical(nn.Module):
+    #Source : https://github.com/yysijie/st-gcn/blob/master/net/st_gcn.py
+    r"""The basic module for applying a graph convolution.
+    Args:
+        in_channels (int): Number of channels in the input sequence data
+        out_channels (int): Number of channels produced by the convolution
+        kernel_size (int): Size of the graph convolving kernel
+        t_kernel_size (int): Size of the temporal convolving kernel
+        t_stride (int, optional): Stride of the temporal convolution. Default: 1
+        t_padding (int, optional): Temporal zero-padding added to both sides of
+            the input. Default: 0
+        t_dilation (int, optional): Spacing between temporal kernel elements.
+            Default: 1
+        bias (bool, optional): If ``True``, adds a learnable bias to the output.
+            Default: ``True``
+    Shape:
+        - Input: Input graph sequence in :math:`(N, in_channels, T_{in}, V)` format
+        - Output: Outpu graph sequence in :math:`(N, out_channels, T_{out}, V)` format
+        where
+            :math:`N` is a batch size,
+            :math:`K` is the spatial kernel size, as :math:`K == kernel_size[1]`,
+            :math:`T_{in}/T_{out}` is a length of input/output sequence,
+            :math:`V` is the number of graph nodes. 
+    """
+    def __init__(self,
+                 time_dim,
+                 joints_dim
+    ):
+        super(ConvSpatialGraphical,self).__init__()
+
+        self.S=nn.Parameter(torch.FloatTensor(joints_dim, joints_dim)) 
+        stdv = 1. / math.sqrt(self.S.size(1))
+        self.S.data.uniform_(-stdv,stdv)
+
+        self.joints_dim = joints_dim
+        self.time_dim = time_dim
+
+    def forward(self, x):
+        S = self.S.unsqueeze(0).expand([self.time_dim, self.joints_dim, self.joints_dim])
+        x = torch.einsum('nctv,tvw->nctw', (x, S))
+        
+        return x.contiguous() 
+
+class ConvSpatialTemporalGraphical(nn.Module):
+    #Source : https://github.com/yysijie/st-gcn/blob/master/net/st_gcn.py
+    r"""The basic module for applying a graph convolution.
+    Args:
+        in_channels (int): Number of channels in the input sequence data
+        out_channels (int): Number of channels produced by the convolution
+        kernel_size (int): Size of the graph convolving kernel
+        t_kernel_size (int): Size of the temporal convolving kernel
+        t_stride (int, optional): Stride of the temporal convolution. Default: 1
+        t_padding (int, optional): Temporal zero-padding added to both sides of
+            the input. Default: 0
+        t_dilation (int, optional): Spacing between temporal kernel elements.
+            Default: 1
+        bias (bool, optional): If ``True``, adds a learnable bias to the output.
+            Default: ``True``
+    Shape:
+        - Input: Input graph sequence in :math:`(N, in_channels, T_{in}, V)` format
+        - Output: Outpu graph sequence in :math:`(N, out_channels, T_{out}, V)` format
+        where
+            :math:`N` is a batch size,
+            :math:`K` is the spatial kernel size, as :math:`K == kernel_size[1]`,
+            :math:`T_{in}/T_{out}` is a length of input/output sequence,
+            :math:`V` is the number of graph nodes. 
+    """
+    def __init__(self,
+                 time_dim,
+                 joints_dim
+    ):
+        super(ConvSpatialTemporalGraphical,self).__init__()
+        
+        self.A=nn.Parameter(torch.FloatTensor(time_dim, joints_dim,joints_dim)) #learnable, graph-agnostic 3-d adjacency matrix(or edge importance matrix)
+        stdv = 1. / math.sqrt(self.A.size(1))
+        self.A.data.uniform_(-stdv,stdv)
+
+        self.T=nn.Parameter(torch.FloatTensor(joints_dim, time_dim, time_dim)) 
+        stdv = 1. / math.sqrt(self.T.size(1))
+        self.T.data.uniform_(-stdv,stdv)
+        '''
+        self.prelu = nn.PReLU()
+        
+        self.Z=nn.Parameter(torch.FloatTensor(joints_dim, joints_dim, time_dim, time_dim)) 
+        stdv = 1. / math.sqrt(self.Z.size(2))
+        self.Z.data.uniform_(-stdv,stdv)
+        '''
+        self.joints_dim = joints_dim
+        self.time_dim = time_dim
+
+    def forward(self, x):
+        x = torch.einsum('nctv,vtq->ncqv', (x, self.T))
+        ## x=self.prelu(x)
+        x = torch.einsum('nctv,tvw->nctw', (x, self.A))
+        ## x = torch.einsum('nctv,wvtq->ncqw', (x, self.Z))
+        return x.contiguous() 

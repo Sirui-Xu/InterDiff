@@ -54,8 +54,26 @@ Download data from [this link](https://github.com/HiWilliamWWL/Learn-to-Predict-
 python train_diffusion_smpl.py
 ```
 
+You may directly evaluate a plain diffusion for short-term generation with checkpoint indicated:
+
+```
+python train_diffusion_smpl.py --mode test --resume_checkpoint PATH/TO/YOUR/CHECKPOINT.ckpt 
+```
+
 #### Training interaction diffusion on the skeleton-based dataset
 
 ```
 python train_diffusion_skeleton.py
+```
+
+#### Training interaction correction on the BEHAVE dataset
+
+```
+python train_correction_smpl.py
+```
+
+#### Training interaction correction on the skeleton-based dataset
+
+```
+python train_correction_skeleton.py
 ```

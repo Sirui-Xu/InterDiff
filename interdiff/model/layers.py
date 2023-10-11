@@ -4,6 +4,7 @@ import numpy as np
 from pointnet2_ops.pointnet2_modules import PointnetSAModuleMSG
 from torch import Tensor
 from typing import Optional
+from sublayers import ConvTemporalGraphical, ConvSpatialGraphical, ConvSpatialTemporalGraphical
 
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, dropout=0.1, max_len=5000):
@@ -266,3 +267,79 @@ class TransformerDecoder(nn.Module):
             output = self.norm(output)
 
         return output
+
+class ST_GCNN_layer(nn.Module):
+    """
+    Shape:
+        - Input[0]: Input graph sequence in :math:`(N, in_channels, T_{in}, V)` format
+        - Input[1]: Input graph adjacency matrix in :math:`(K, V, V)` format
+        - Output[0]: Outpu graph sequence in :math:`(N, out_channels, T_{out}, V)` format
+        where
+            :math:`N` is a batch size,
+            :math:`K` is the spatial kernel size, as :math:`K == kernel_size[1]`,
+            :math:`T_{in}/T_{out}` is a length of input/output sequence,
+            :math:`V` is the number of graph nodes. 
+            :in_channels= dimension of coordinates
+            : out_channels=dimension of coordinates
+            +
+    """
+    def __init__(self,
+                 in_channels,
+                 out_channels,
+                 kernel_size,
+                 stride,
+                 time_dim,
+                 joints_dim,
+                 dropout,
+                 version):
+        
+        super(ST_GCNN_layer,self).__init__()
+        self.kernel_size = kernel_size
+        assert self.kernel_size[0] % 2 == 1
+        assert self.kernel_size[1] % 2 == 1
+        padding = ((self.kernel_size[0] - 1) // 2,(self.kernel_size[1] - 1) // 2)
+        if version == 0:
+            self.gcn=ConvTemporalGraphical(time_dim,joints_dim) # the convolution layer
+        elif version == 1:
+            self.gcn=ConvSpatialGraphical(time_dim,joints_dim)
+        elif version == 2:
+            self.gcn=ConvSpatialTemporalGraphical(time_dim,joints_dim)
+
+        self.tcn = nn.Sequential(
+            nn.Conv2d(
+                in_channels,
+                out_channels,
+                (self.kernel_size[0], self.kernel_size[1]),
+                (stride, stride),
+                padding,
+            ),
+            nn.BatchNorm2d(out_channels),
+            nn.Dropout(dropout, inplace=True),
+        )       
+        
+        if stride != 1 or in_channels != out_channels: 
+
+            self.residual=nn.Sequential(nn.Conv2d(
+                    in_channels,
+                    out_channels,
+                    kernel_size=1,
+                    stride=(1, 1)),
+                nn.BatchNorm2d(out_channels),
+            )
+            
+            
+        else:
+            self.residual=nn.Identity()
+        
+        
+        self.prelu = nn.PReLU()
+
+        
+
+    def forward(self, x):
+        res=self.residual(x)
+        x=self.gcn(x) 
+        x=self.tcn(x)
+        x=x+res
+        x=self.prelu(x)
+        return x

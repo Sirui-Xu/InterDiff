@@ -11,7 +11,7 @@ from pathlib import Path
 from datetime import datetime
 from argparse import ArgumentParser, Namespace
 from tools import rotvec_to_rotmat
-from model.model_smpl import create_model_and_diffusion
+from model.diffusion_smpl import create_model_and_diffusion
 from data.dataset_smpl import Dataset, OBJECT_PATH, MODEL_PATH
 from data.utils import SIMPLIFIED_MESH
 from libsmpl.smplpytorch.pytorch.smpl_layer import SMPL_Layer
@@ -45,10 +45,10 @@ class LitInteraction(pl.LightningModule):
 
     def on_train_start(self) -> None:
         #     backup trainer and model
-        shutil.copy('./train_diffusion_smpl.py', str(save_dir / 'train_diffusion.py'))
-        shutil.copy('./model/model_smpl.py', str(save_dir / 'model.py'))
-        shutil.copy('./data/dataset_smpl.py', str(save_dir / 'dataset.py'))
-        shutil.copy('./diffusion/gaussian_diffusion.py', str(save_dir / 'diffusion.py'))
+        shutil.copy('./train_diffusion_smpl.py', str(save_dir / 'train_diffusion_smpl.py'))
+        shutil.copy('./model/diffusion_smpl.py', str(save_dir / 'diffusion_smpl.py'))
+        shutil.copy('./data/dataset_smpl.py', str(save_dir / 'dataset_smpl.py'))
+        shutil.copy('./diffusion/gaussian_diffusion.py', str(save_dir / 'gaussian_diffusion.py'))
         return
 
     def l2(self, a, b):
