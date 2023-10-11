@@ -4,7 +4,7 @@ import numpy as np
 from pointnet2_ops.pointnet2_modules import PointnetSAModuleMSG
 from torch import Tensor
 from typing import Optional
-from sublayers import ConvTemporalGraphical, ConvSpatialGraphical, ConvSpatialTemporalGraphical
+from model.sublayers import ConvTemporalGraphical, ConvSpatialGraphical, ConvSpatialTemporalGraphical
 
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, dropout=0.1, max_len=5000):

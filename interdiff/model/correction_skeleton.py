@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 from pytorch3d.transforms import matrix_to_rotation_6d, quaternion_to_matrix, rotation_6d_to_matrix, matrix_to_quaternion
-from layers import ST_GCNN_layer
+from model.layers import ST_GCNN_layer
 
 class ObjProjector(nn.Module):
     def __init__(self, args):

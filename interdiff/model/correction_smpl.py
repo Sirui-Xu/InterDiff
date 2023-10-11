@@ -3,7 +3,7 @@ import torch.nn as nn
 import numpy as np
 from pytorch3d.transforms import axis_angle_to_matrix, matrix_to_rotation_6d
 from data.utils import marker2bodypart
-from layers import ST_GCNN_layer
+from model.layers import ST_GCNN_layer
 
 class ObjProjector(nn.Module):
     def __init__(self, args):
