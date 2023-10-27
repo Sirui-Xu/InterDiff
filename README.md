@@ -44,7 +44,7 @@ This paper addresses a novel task of anticipating 3D human-object interactions (
 </br>
 
 ## 📖 Implementation
-To create the environment, you can check and build according to the requirement file [./requirements.txt](requirements.txt), which is based on python 3.7. 
+To create the environment, you can check and build according to the requirement file [requirements.txt](requirements.txt), which is based on python 3.7. 
 
 > [!NOTE]
 > For specific packages such as [psbody-mesh](https://github.com/MPI-IS/mesh.git) and [human-body-prior](https://github.com/nghorbani/human_body_prior.git), you may need to build from their sources.
@@ -62,13 +62,16 @@ For more information about the implementation, see [interdiff/README.md](interdi
 </p>
 
 ## 🔥 News
+- [2023-10-27] Release a training and evaluation codes, as well as our checkpoints. Let's play with it!
 - [2023-09-16] Release a [demo video](https://sirui-xu.github.io/InterDiff/images/teaser_1080p.mp4) 📹.
 - [2023-09-01] Our paper is available on the [Arxiv](https://arxiv.org/pdf/2308.16905) &#x1F389; Code/Models are coming soon. Please stay tuned! ☕️
 
 ## 📝 TODO List
 - [x] Release more demos.
 - [x] Data preparation.
-- [ ] Release training and evaluation code.
+- [x] Release training and evaluation (short-term) codes.
+- [x] Release checkpoints.
+- [ ] Release evaluation (long-term) and optimization codes.
 - [ ] Release code for visualization.
 
 ## 🔍 Overview
