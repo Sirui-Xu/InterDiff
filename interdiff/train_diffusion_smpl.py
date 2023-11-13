@@ -422,7 +422,7 @@ class LitInteraction(pl.LightningModule):
             body_gt, obj_gt = torch.split(gt.squeeze(1).permute(2, 0, 1).contiguous(), self.args.smpl_dim+3, dim=2)
             idx_pad = list(range(self.args.past_len)) + [self.args.past_len - 1] * self.args.future_len
             hand_pose = torch.cat([frame['smplfit_params']['pose'][:, 66:].unsqueeze(0) for frame in batch['frames']], dim=0).float()
-            body_gt = torch.cat([body_gt[:, :, :-3], hand_pose, body_gt[:, :, -3:]], dim=2)
+            # body_gt = torch.cat([body_gt[:, :, :-3], hand_pose, body_gt[:, :, -3:]], dim=2)
             body_preds, obj_preds = [], []
             T, B, _ = body_gt[:, :, :-3].shape
             body_rot_gt = matrix_to_axis_angle(rotation_6d_to_matrix(body_gt[:, :, :-3].view(T, B, -1, 6))).view(T, B, -1)

@@ -5,9 +5,11 @@ This README file contains instructions for processing data and implementing the 
 #### Preparing data from the BEHAVE dataset
 
 The config file is located at [./data/cfg/behave.yml](data/cfg/BEHAVE.yml).
-You may directly follow the structure in the config file, *i.e.,* putting the data into a folder named [./data/behave/](data/behave/), or you can modify the config file.
+You may follow the structure in the config file, *i.e.,* putting the data into a folder named [./data/behave/](data/behave/), or you can modify the config file.
 
-Please follow the steps below:
+You can download our processed data from [this link](), unzip the file, and put it under [./data/](data/).
+
+Or follow the steps below:
 * Download the motion data from [this link](https://datasets.d2.mpi-inf.mpg.de/cvpr22behave/behave-30fps-params-v1.tar), and put them into [./data/behave/sequence](data/behave/sequence/). The final file structure should be:
     ```
     ./data/behave/sequence
@@ -35,13 +37,13 @@ Please follow the steps below:
 For further information about the BEHAVE dataset and for download links, please click [here](https://virtualhumans.mpi-inf.mpg.de/behave/) 
 
 > [!IMPORTANT]
-> Users may have different sampled point clouds when generating contact labels, which may affect the trained model. We are evaluating this and may release the our model weights and point cloud sample data later.
+> Users may have different sampled point clouds when generating contact labels, which may affect our provided pretrained model. 
 
 
 #### Preparing data from the skeleton-based dataset
 
 The config file is located at [./data/cfg/HOI.yml](data/cfg/HOI.yml).
-You may directly follow the structure in the config file, *i.e.,* putting the data into a folder named [./data/hoi/](data/hoi/), or you can modify the config file.
+You may follow the structure in the config file, *i.e.,* putting the data into a folder named [./data/hoi/](data/hoi/), or you can modify the config file.
 
 Download data from [this link](https://github.com/HiWilliamWWL/Learn-to-Predict-How-Humans-Manipulate-Large-Sized-Objects-From-Interactive-Motions-objects) and put it in the folder [./data/hoi/](data/hoi/).
 
@@ -54,7 +56,7 @@ Download data from [this link](https://github.com/HiWilliamWWL/Learn-to-Predict-
 python train_diffusion_smpl.py
 ```
 
-You may directly evaluate a plain diffusion for short-term generation with checkpoint indicated:
+You may evaluate a plain diffusion for short-term generation with checkpoint indicated:
 
 ```
 python train_diffusion_smpl.py --mode test --resume_checkpoint PATH/TO/YOUR/CHECKPOINT.ckpt 
