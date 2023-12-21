@@ -38,7 +38,7 @@ For further information about the BEHAVE dataset and for download links, please 
 
 > [!IMPORTANT]
 > Users may have different sampled point clouds when generating contact labels, which may affect our provided pretrained model. 
-
+> We provide our processed BEHAVE data on [this link](https://drive.google.com/file/d/1txDAK9YmLT13hGMlNAwHAP--wiN-kMQr/view?usp=sharing). You may consider trying our pretrained model with these data.
 
 #### Preparing data from the skeleton-based dataset
 
