@@ -7,7 +7,7 @@ This README file contains instructions for processing data and implementing the 
 The config file is located at [./data/cfg/behave.yml](data/cfg/BEHAVE.yml).
 You may follow the structure in the config file, *i.e.,* putting the data into a folder named [./data/behave/](data/behave/), or you can modify the config file.
 
-You can download our processed data from [this link](), unzip the file, and put it under [./data/](data/).
+You can download our processed data from [this link](https://drive.google.com/file/d/1txDAK9YmLT13hGMlNAwHAP--wiN-kMQr/view?usp=sharing), unzip the file, and put it under [./data/](data/).
 
 Or follow the steps below:
 * Download the motion data from [this link](https://datasets.d2.mpi-inf.mpg.de/cvpr22behave/behave-30fps-params-v1.tar), and put them into [./data/behave/sequence](data/behave/sequence/). The final file structure should be:
