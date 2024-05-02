@@ -11,8 +11,8 @@ from pathlib import Path
 from datetime import datetime
 from argparse import ArgumentParser, Namespace
 from model.correction_skeleton import ObjProjector
-from viz.viz_helper import visualize_skeleton
-from dataset.dataset import get_datasets
+from render.viz_helper import visualize_skeleton
+from data.dataset_skeleton import get_datasets
 
 from pytorch3d.transforms import quaternion_to_matrix
 
