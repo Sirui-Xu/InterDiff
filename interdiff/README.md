@@ -103,6 +103,31 @@ To use our provided model:
 ```
 python eval_smpl_short.py --resume_checkpoint checkpoints/diffusion.ckpt --resume_checkpoint_obj checkpoints/correction.ckpt --mode no_correction
 ```
+
+#### Evaluate short-term generation on the BEHAVE dataset
+
+You need to specify the checkpoint of interaction diffusion (PATH/TO/YOUR/DIFFUSION.ckpt) and interaction correction (PATH/TO/YOUR/CORRECTION.ckpt)
+
+To evaluate the performance of the full InterDiff pipeline with interaction correction:
+```
+python eval_smpl_long.py --resume_checkpoint PATH/TO/YOUR/DIFFUSION.ckpt --resume_checkpoint_obj PATH/TO/YOUR/CORRECTION.ckpt --autoregressive AUTOREGRESSIVE_STEPS
+```
+
+To use our provided model:
+```
+python eval_smpl_long.py --resume_checkpoint checkpoints/diffusion.ckpt --resume_checkpoint_obj checkpoints/correction.ckpt --autoregressive AUTOREGRESSIVE_STEPS
+```
+
+To evaluate the performance of the plain interaction diffusion without interaction correction:
+```
+python eval_smpl_long.py --resume_checkpoint PATH/TO/YOUR/DIFFUSION.ckpt --resume_checkpoint_obj PATH/TO/YOUR/CORRECTION.ckpt --mode no_correction --autoregressive AUTOREGRESSIVE_STEPS
+```
+
+To use our provided model:
+```
+python eval_smpl_long.py --resume_checkpoint checkpoints/diffusion.ckpt --resume_checkpoint_obj checkpoints/correction.ckpt --mode no_correction --autoregressive AUTOREGRESSIVE_STEPS
+```
+
 #### Evaluate short-term generation on the skeleton-based dataset
 
 You need to specify the checkpoint of interaction diffusion (PATH/TO/YOUR/DIFFUSION.ckpt) and interaction correction (PATH/TO/YOUR/CORRECTION.ckpt)
