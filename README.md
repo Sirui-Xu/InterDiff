@@ -71,7 +71,7 @@ For more information about the implementation, see [interdiff/README.md](interdi
 - [x] Data preparation.
 - [x] Release training and evaluation (short-term) codes.
 - [x] Release checkpoints.
-- [ ] Release evaluation (long-term) and optimization codes.
+- [x] Release evaluation (long-term) and optimization codes.
 - [ ] Release code for visualization.
 
 ## 🔍 Overview
